@@ -5,7 +5,7 @@ describe('Funcionalidade: Cadastro', () => {
     
   
     beforeEach(() => {
-         cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+         cy.visit('minha-conta')
     });
        
     
@@ -23,7 +23,7 @@ describe('Funcionalidade: Cadastro', () => {
     })
 
 
-     it.only('Deve fazer um cadastro com sucesso - Usando variáveis', () => {
+     it('Deve fazer um cadastro com sucesso - Usando variáveis', () => {
         var email = faker.internet.email()
         var nome = faker.person.firstName()
         var sobrenome = faker.person.lastName()
@@ -41,9 +41,10 @@ describe('Funcionalidade: Cadastro', () => {
 
     })
 
+    it.only ("Deve fazer um cadastro com sucesso - Usando comando customizado", () => {
+        cy.preCadastro(faker.internet.email(), '1234567', faker.person.firstName(), faker.person.lastName())
+        cy.get('.woocommerce-message').should('contain', 'Detalhes da conta modificados com sucesso.')
+
      });
 
-
-
-
-
+    })
