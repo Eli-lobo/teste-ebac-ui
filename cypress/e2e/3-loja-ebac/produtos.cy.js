@@ -1,9 +1,11 @@
 /// <reference types="cypress" />
+import produtosPage from "../../support/page-objects/produtos.page";
 
 describe('Funcionalidade: Produtos', () => {
     beforeEach(() => {
-         cy.visit('produtos')
+        produtosPage.visitarUrl()
     });
+
     it('Deve selecionar um produto da lista', () => {
         cy.get('.products > .row')
         
@@ -20,3 +22,17 @@ describe('Funcionalidade: Produtos', () => {
     });
 
 });
+
+it.only('Deve buscar um produto com sucesso',() =>{
+    produtosPage.buscarProduto('Zeppelin Yoga Pant')
+
+});
+
+it('Deve visitar a página de produto',() => {
+
+});
+
+it('Deve adicionar produto ao carrinho',() => {
+
+});
+
