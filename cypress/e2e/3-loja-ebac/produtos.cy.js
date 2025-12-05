@@ -23,16 +23,21 @@ describe('Funcionalidade: Produtos', () => {
 
 });
 
-it.only('Deve buscar um produto com sucesso',() =>{
-    produtosPage.buscarProduto('Zeppelin Yoga Pant')
+it('Deve buscar um produto com sucesso',() =>{
+    let produto = 'Zeppelin Yoga Pant'
+    produtosPage.buscarProduto(produto)
+    cy.get('.product_title').should('contain', produto)
 
 });
 
 it('Deve visitar a página de produto',() => {
+    produtosPage.VisitarProduto("Zeppelin Yoga Pant")
+    cy.get('.product_title').should('contain', 'Zeppelin Yoga Pant')
 
 });
 
-it('Deve adicionar produto ao carrinho',() => {
+it.only('Deve adicionar produto ao carrinho',() => {
+    produtosPage.buscarProduto('Abominable Hoodie')
 
 });
 
