@@ -14,8 +14,8 @@ describe('Funcionalidade: Login', () => {
 
 
     it('Deve fazer login com sucesso', () => {
-        cy.get('#username').type('eli@teste.com.br')
-        cy.get('#password').type('123testemudar')
+        cy.get('#username').type(perfil.usuario)
+        cy.get('#password').type(perfil.senha)
         cy.get('.woocommerce-form > .button').click()
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, eli (não é eli? Sair)')
 });
